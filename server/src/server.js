@@ -7,7 +7,6 @@ const server = new express();
 const {connectWebSocket} = require('./config/ws');
 connectWebSocket(server);
 
-
 server.use(bodyParser.json());
 server.use(express.static(__dirname + '/public'));
 server.use('/', routes);

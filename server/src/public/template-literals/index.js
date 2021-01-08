@@ -1,6 +1,5 @@
 import getCityListItem from './cityListItem.js';
 import getCitySelectOption from './citySelectOption.js';
-import citiesMockedData  from './citiesMockedData.js';
 
 const CITY_LIST_CLASS = 'city-list';
 const CITY_ITEM_CLASS = 'city-list__item';
@@ -25,9 +24,9 @@ function appendCityToSelect(cityName) {
     selectNodeElement.appendChild(optionEl);
 }
 
-export default function updateCitiesList() {
+export default function updateCitiesList(cities) {
     clearHTMLElements([CITY_LIST_CLASS, CITY_DROPDOWN_CLASS]);
-    citiesMockedData.forEach(({name, progress}) => {
+    cities.forEach(({name, progress}) => {
         const cb = progress === null ? appendCityToSelect : appendCityToList;
         cb(name, progress);
     });

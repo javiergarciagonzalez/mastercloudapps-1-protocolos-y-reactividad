@@ -6,16 +6,13 @@ const FAKE_DELAY = 300;
 async function init() {
 
     // Simulate some network delay
-    setTimeout(() => {
-        updateCitiesList();
+    setTimeout(async () => {
+        const result = await fetch('/api/cities');
+        const cities = await result.json();
+        updateCitiesList(cities.data);
     }, FAKE_DELAY);
 
     setUpWebSocket();
-
-    const result = await fetch('/api/eoloplants', { method: 'POST'});
-    const parsedResult = await result.json();
-
-    console.log(parsedResult);
 }
 
 init();
