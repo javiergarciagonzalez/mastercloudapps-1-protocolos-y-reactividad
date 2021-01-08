@@ -4,8 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eoloplanner</title>
+    <link rel="stylesheet" href="./main.css">
 </head>
 <body>
-    hey
+    <h1>Eoloplanner</h1>
+    <h4>Create new Eoloplants!</h4>
+
+    <h2>Cities</h2>
+    <ul class="cities-list">
+        <li>Loading...</li>
+    </ul>
+
+    <form action="/api/create" method="POST">
+        <label for="cities">Select a city that hadn't been created yet:</label>
+        <select name="cities">
+            <option value="">Loading...</option>
+        </select>
+        <button type="submit">Create!</button>
+    </form>
+
+    <script src="./main.js" type="module"></script>
 </body>
 </html>
