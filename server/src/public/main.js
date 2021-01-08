@@ -2,40 +2,32 @@ import { city } from './template-literals/index.js';
 import citiesMockedData  from './citiesMockedData.js';
 
 const FAKE_DELAY = 300;
+const CITY_LIST_SELECTOR = '.city-list';
+const CITY_ITEM_SELECTOR = '.city-list__item';
+const CITY_DROPDOWN_SELECTOR = '.city-dropdown';
 
 function updateCitiesList() {
-    clearLoadingState();
+    clearHTMLElements([CITY_LIST_SELECTOR, CITY_DROPDOWN_SELECTOR]);
     citiesMockedData.forEach(({name, progress}) => {
-
         const cb = progress === null ? appendCityToSelect : appendCityToList;
-
         cb(name, progress);
-        // if (progress !== null) {
-        //     appendCityToList(name, progress);
-        //     appendCityToSelect(name);
-        // }
     });
-
 }
 
-function clearLoadingState() {
-    const listNodeElement = document.querySelector('ul');
-    listNodeElement.innerHTML = '';
-
-    const selectNodeElement = document.querySelector('select');
-    selectNodeElement.innerHTML = '';
+function clearHTMLElements(htmlSelectors) {
+    htmlSelectors.forEach(el => document.querySelector(el).innerHTML = '');
 }
 
 function appendCityToList(name, progress) {
-    const listNodeElement = document.querySelector('ul');
-    const itemNodeElement = document.createElement('li');
+    const listNodeElement = document.querySelector(CITY_LIST_SELECTOR);
+    const itemNodeElement = document.createElement(CITY_ITEM_SELECTOR);
     itemNodeElement.innerHTML = city(name, progress);
     listNodeElement.appendChild(itemNodeElement);
     listNodeElement.inn
 }
 
 function appendCityToSelect(cityName) {
-    const selectNodeElement = document.querySelector('select');
+    const selectNodeElement = document.querySelector(CITY_DROPDOWN_SELECTOR);
     const optionNodeElement = document.createElement('option');
     optionNodeElement.value = cityName;
     optionNodeElement.innerText = cityName;
