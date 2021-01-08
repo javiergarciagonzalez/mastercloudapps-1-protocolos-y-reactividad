@@ -9,7 +9,7 @@ async function init() {
     setTimeout(async () => {
         const result = await fetch('/api/cities');
         const cities = await result.json();
-        updateCitiesList(cities.data);
+        updateCitiesList(cities);
     }, FAKE_DELAY);
 
     setUpWebSocket();

@@ -24,9 +24,13 @@ function appendCityToSelect(cityName) {
     selectNodeElement.appendChild(optionEl);
 }
 
+const mockedProgress = [null, null, null, null, null, 0, 25, 50, 75, 100];
+
 export default function updateCitiesList(cities) {
     clearHTMLElements([CITY_LIST_CLASS, CITY_DROPDOWN_CLASS]);
-    cities.forEach(({name, progress}) => {
+
+    cities.forEach(({id: name, progress: receivedProgress}) => {
+        const progress = receivedProgress ? receivedProgress : mockedProgress[Math.floor(Math.random() * mockedProgress.length)]
         const cb = progress === null ? appendCityToSelect : appendCityToList;
         cb(name, progress);
     });

@@ -13,7 +13,7 @@ function wsOnOpen(socket) {
 }
 
 export default function setUpWebSocket() {
-    const socket = new WebSocket('ws://localhost:8080/');
+    const socket = new WebSocket('ws://localhost:4000/');
 
     socket.onopen =  () => wsOnOpen(socket);
     socket.onmessage =  ({data}) => console.log(`[Message] Data received from server: ${data}`);

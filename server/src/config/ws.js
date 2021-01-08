@@ -3,7 +3,7 @@ let wss;
 
 function connectWebSocket() {
 
-    wss = new WebSocket.Server({ port: 8080 });
+    wss = new WebSocket.Server({ port: 4000 });
     wss.on('connection', function connection(ws, req) {
 
         console.log('User connected');
