@@ -1,0 +1,23 @@
+{
+  "name": "weatherservice",
+  "version": "1.0.0",
+  "description": "gRPC api on nodeJS",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ENV=production PORT=9090 node src/server.js",
+    "develop": "ENV=develop PORT=9090 nodemon src/server.js"
+  },
+  "keywords": [
+    "gRPC",
+    "nodejs",
+    "API"
+  ],
+  "author": "Javier Garcia Gonzalez <javier@garciagon.com>",
+  "license": "ISC",
+  "dependencies": {
+    "@grpc/proto-loader": "^0.5.5",
+    "grpc": "^1.24.4",
+    "nodemon": "^2.0.7"
+  }
+}
