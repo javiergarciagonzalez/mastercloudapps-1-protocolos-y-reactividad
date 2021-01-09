@@ -1,16 +1,11 @@
-package es.eoloplant.board.model;
+package es.eoloplant.model;
 
-import org.springframework.data.annotation.Id;
+public class CityDTO {
 
-public class City {
-
-    @Id
     private String id;
     private String landscape;
 
-    protected City() {}
-
-    public City(String id, String landscape) {
+    public CityDTO(String id, String landscape) {
         this.id = id;
         this.landscape = landscape;
     }
@@ -23,8 +18,11 @@ public class City {
         return landscape;
     }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public void setLandscape(String landscape) {
         this.landscape = landscape;
     }
-
 }

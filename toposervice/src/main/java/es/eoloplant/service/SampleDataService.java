@@ -1,12 +1,12 @@
-package es.eoloplant.board.service;
+package es.eoloplant.service;
 
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import es.eoloplant.board.model.City;
-import es.eoloplant.board.repository.CityRepository;
+import es.eoloplant.model.City;
+import es.eoloplant.repository.CityRepository;
 import reactor.core.publisher.Flux;
 
 @Service
@@ -27,7 +27,6 @@ public class SampleDataService {
                 new City("South Park", "Mountain"),
                 new City("Gothan", "Flat"),
                 new City("Springfield", "Mountain"),
-                new City("Zaragoza", "Flat"),
                 new City("Quahog", "Mountain"),
                 new City("Nueva Nueva York", "Flat"),
                 new City("Desembarco del Rey", "Flat"),

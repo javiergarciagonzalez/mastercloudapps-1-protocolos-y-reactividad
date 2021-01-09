@@ -1,4 +1,4 @@
-package es.eoloplant.board.model;
+package es.eoloplant.model;
 
 public class CityNameDTO {
 

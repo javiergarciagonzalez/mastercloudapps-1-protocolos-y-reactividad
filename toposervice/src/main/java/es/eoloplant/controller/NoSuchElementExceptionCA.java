@@ -1,4 +1,4 @@
-package es.eoloplant.board.controller;
+package es.eoloplant.controller;
 
 import java.util.NoSuchElementException;
 
