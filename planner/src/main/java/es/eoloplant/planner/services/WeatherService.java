@@ -5,9 +5,9 @@ import java.util.concurrent.CompletableFuture;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
+import es.eoloplant.weatherservice.GetWeatherRequest;
+import es.eoloplant.weatherservice.GetWeatherResponse;
 import es.eoloplant.weatherservice.WeatherServiceGrpc.WeatherServiceBlockingStub;
-import es.eoloplant.weatherservice.WeatherServiceOuterClass.GetWeatherRequest;
-import es.eoloplant.weatherservice.WeatherServiceOuterClass.GetWeatherResponse;
 import net.devh.boot.grpc.client.inject.GrpcClient;
 
 @Service

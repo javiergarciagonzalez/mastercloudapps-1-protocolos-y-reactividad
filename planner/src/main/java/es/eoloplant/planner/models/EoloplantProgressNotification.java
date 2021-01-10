@@ -20,10 +20,6 @@ public class EoloplantProgressNotification {
     @Builder.Default
    private int progress = 0;
 
-   @Builder.Default
-   private boolean isCompleted = false;
-
-
     public void incrementProgress() {
         this.progress += 25;
     }
@@ -37,9 +33,13 @@ public class EoloplantProgressNotification {
             this.planning = this.city;
         }
 
-        this.planning += '-' + planningStep;
+        this.planning = this.planning + '-' + planningStep;
 
         return this.city.matches("^[A-Ma-m].*") ? this.planning.toLowerCase() : this.planning.toUpperCase();
+    }
+
+    private String getComputedPlanning() {
+        return this.isCompleted() ? this.planning : "null";
     }
 
     public String getJSONString() {
@@ -49,7 +49,7 @@ public class EoloplantProgressNotification {
             ", city:" + city +
             ", progress:" + progress +
             ", completed:" + isCompleted() +
-            ", planning:" + getPlanning() +
+            ", planning:" + getComputedPlanning() +
             '}';
     }
 }
