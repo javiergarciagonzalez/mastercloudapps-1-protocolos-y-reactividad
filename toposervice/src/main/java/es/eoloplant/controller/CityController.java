@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import es.eoloplant.dtos.CityDTO;
+import es.eoloplant.dtos.CityNameDTO;
 import es.eoloplant.model.City;
-import es.eoloplant.model.CityDTO;
-import es.eoloplant.model.CityNameDTO;
 import es.eoloplant.service.CityService;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;

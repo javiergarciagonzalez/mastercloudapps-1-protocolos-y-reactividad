@@ -1,4 +1,4 @@
-package es.eoloplant.model;
+package es.eoloplant.dtos;
 
 public class CityDTO {
 
