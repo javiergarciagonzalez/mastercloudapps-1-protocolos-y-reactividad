@@ -37,8 +37,8 @@ public class EoloplantCreationRequestsConsumer {
 
         weatherResponse.whenCompleteAsync((response, error) -> {
             weatherResponse.join();
-            eoloplantProgressNotification.updatePlanning(response);
             eoloplantProgressNotification.incrementProgress();
+            eoloplantProgressNotification.updatePlanning(response);
             AMQPproducer.sendMessage(eoloplantProgressNotification);
         });
 
