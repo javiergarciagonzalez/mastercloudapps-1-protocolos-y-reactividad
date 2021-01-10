@@ -2,17 +2,17 @@ syntax = "proto3";
 
 option java_multiple_files = true;
 
-package es.eoloplant.grpc;
+package es.eoloplant.weatherservice;
 
 message GetWeatherRequest {
     string city = 1;
 }
 
-message Weather {
+message GetWeatherResponse {
     string city = 1;
     string weather = 2;
 }
 
 service WeatherService {
-    rpc GetWeather(GetWeatherRequest) returns (Weather);
+    rpc GetWeather(GetWeatherRequest) returns (GetWeatherResponse);
 }

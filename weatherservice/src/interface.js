@@ -15,4 +15,4 @@ const packageDefinition = protoLoader.loadSync(PROTO_PATH,
 
 const weatherServiceProto = grpc.loadPackageDefinition(packageDefinition);
 
-module.exports = weatherServiceProto.es.eoloplant.grpc.WeatherService;
+module.exports = weatherServiceProto.es.eoloplant.weatherservice.WeatherService;
