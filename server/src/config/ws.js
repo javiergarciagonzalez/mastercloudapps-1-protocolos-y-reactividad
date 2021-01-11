@@ -1,35 +1,23 @@
-const WebSocket = require('ws');
+import WebSocket from 'ws';
 let wss;
+let storedWs;
 
-function connectWebSocket() {
+export function connectWebSocket() {
 
     wss = new WebSocket.Server({ port: 4000 });
     wss.on('connection', function connection(ws, req) {
 
-        console.log('User connected');
+        storedWs = ws;
+
+        console.log('WebSocket connected', storedWs);
 
         ws.on('message', function (msg) {
             console.log('Message received:' + msg);
         });
 
-        ws.send('')
-
-        setInterval(()=>{
-
-            ws.send("Browser message");
-
-        },1000);
-
     });
 }
 
-function sendWSMessage(message) {
-    wss.on('connection', ws => {
-        ws.send(message)
-    })
+export function sendWSMessage(message) {
+    storedWs.send(message.data)
 }
-
-
-module.exports = {connectWebSocket, sendWSMessage};
-
-

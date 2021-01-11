@@ -45,11 +45,11 @@ public class EoloplantProgressNotification {
     public String getJSONString() {
         return
             '{' +
-            "id:" + id +
-            ", city:" + city +
-            ", progress:" + progress +
-            ", completed:" + isCompleted() +
-            ", planning:" + getComputedPlanning() +
+             "\"" + "id" +  "\"" + ": " + id + ',' +
+             "\"" + "city" +  "\"" + ": " + '\"' + city + '\"' + ',' +
+             "\"" + "progress" +  "\"" + ": " + progress + ',' +
+             "\"" + "completed" +  "\"" + ": " + isCompleted() + ',' +
+             "\"" + "planning" +  "\"" + ": " + "\"" + getComputedPlanning() + "\"" +
             '}';
     }
 }

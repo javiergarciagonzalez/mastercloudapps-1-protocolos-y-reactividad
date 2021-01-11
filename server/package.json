@@ -14,6 +14,7 @@
   "author": "Javier Garcia Gonzalez <Javier@garciagon.com>",
   "license": "ISC",
   "dependencies": {
+    "amqplib": "^0.6.0",
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
     "mysql2": "^2.2.5",
@@ -21,6 +22,7 @@
     "sequelize": "^6.3.5",
     "ws": "^7.4.2"
   },
+  "type": "module",
   "devDependencies": {
     "nodemon": "^2.0.6"
   }

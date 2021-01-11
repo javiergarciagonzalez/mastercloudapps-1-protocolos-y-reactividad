@@ -1,21 +1,13 @@
-const fetch = require('node-fetch');
-const router = require('express').Router();
+import express from'express';
+import getAllCities from'../services/getAllCities.js';
+import createCity from'../services/createCity.js';
 
-const mockedCities = require('../temp-mocked-data/cities.js');
+const router = express.Router();
 
-router.post('/api/eoloplants', (req, res) => {
-
-    const result = {foo: 42};
-
-    res.json(result);
-});
+router.post('/api/eoloplants', createCity);
 
 router.get('/api/eoloplants/cities', (req, res) => {})
 
-router.get('/api/cities', async (req, res) => {
-    const result = await fetch('http://localhost:8080/api/topographicdetails/');
-    const data = await result.json();
-    res.json(data);
-})
+router.get('/api/cities', getAllCities);
 
-module.exports = router;
+export default router;

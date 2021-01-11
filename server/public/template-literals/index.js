@@ -9,11 +9,11 @@ function clearHTMLElements(htmlSelectors) {
     htmlSelectors.forEach(el => document.querySelector(`.${el}`).innerHTML = '');
 }
 
-function appendCityToList(name, progress) {
+export function appendOrUpdateCityToList(name, progress, planning) {
     const listNodeElement = document.querySelector(`.${CITY_LIST_CLASS}`);
-    const itemNodeElement = document.createElement('li');
+    const itemNodeElement = Array.from(listNodeElement.querySelectorAll('li')).find(li => li.querySelector(`#${name}`)) || document.createElement('li');
     itemNodeElement.classList.add(CITY_ITEM_CLASS);
-    itemNodeElement.innerHTML = getCityListItem(name, progress);
+    itemNodeElement.innerHTML = getCityListItem(name, progress, planning);
     listNodeElement.appendChild(itemNodeElement);
 }
 
@@ -24,14 +24,10 @@ function appendCityToSelect(cityName) {
     selectNodeElement.appendChild(optionEl);
 }
 
-const mockedProgress = [null, null, null, null, null, 0, 25, 50, 75, 100];
-
 export default function updateCitiesList(cities) {
     clearHTMLElements([CITY_LIST_CLASS, CITY_DROPDOWN_CLASS]);
 
-    cities.forEach(({id: name, progress: receivedProgress}) => {
-        const progress = receivedProgress ? receivedProgress : mockedProgress[Math.floor(Math.random() * mockedProgress.length)]
-        const cb = progress === null ? appendCityToSelect : appendCityToList;
-        cb(name, progress);
+    cities.forEach(({id: name}) => {
+        appendCityToSelect(name);
     });
 }
